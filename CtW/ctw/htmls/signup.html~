@@ -1,0 +1,30 @@
+<html>
+	<body>
+		<div align="center">
+		<form align="center" method="get" action="/signupp">
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<p style="font-size:120%;"> Username:
+			<input style="font-size:110%;" type="text" name="username"/>
+			<br/>
+			<p style="font-size:120%;"> Password:
+			<input style="font-size:110%;" type="password" name="password"/>
+			<br/>
+			<p style="font-size:120%;"> Empire Id:
+			<input style="font-size:110%;" type="text" name="id"/>
+			<br/>
+			<p style="font-size:120%;"> First Name:
+			<input style="font-size:110%;" type="text" name="fname"/>
+			<br/>
+			<p style="font-size:120%;"> Last Name:
+			<input style="font-size:110%;" type="text" name="lname"/>
+			<br/>
+			{% csrf_token %}
+			<br/>
+			<input style="font-size:110%;" align="center" type="submit" name="login" value="Sign Up"/>
+		</form>
+		</div>
+	</body>
+</html>

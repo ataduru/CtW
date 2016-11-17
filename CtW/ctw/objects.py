@@ -1,0 +1,333 @@
+
+class Asker:
+	
+	def __init__(self, sayi, saldiri_gucu, savunma_gucu):
+		self.sayi = sayi
+		self.saldiri_gucu = saldiri_gucu
+		self.savunma_gucu = savunma_gucu
+
+
+
+class yapilar:
+
+	def __init__(self, sayi, hiz, saglamlik_durumu, uretilen_coin,tedavi_iyilestirme_hizi, sinir_savunmasi):
+		self.sayi = sayi
+		self.hiz = hiz
+		self.saglamlik_durumu = saglamlik_durumu
+		self.uretim_sayisi = hiz*10
+		self.uretilen_coin = uretilen_coin
+		self.tedavi_iyilestirme_hizi = tedavi_iyilestirme_hizi
+		self.sinir_savunmasi = sinir_savunmasi
+
+	
+	
+
+		
+	
+class Empire:
+	anaKuleSavunmasi = 100
+	ad=""
+	empire_id = 0
+
+	
+
+	def __init__(self, empire_id, yuz_olcumu, sinir_savunmasi, coin, tahta_miktari, metal_miktari, ad):
+		self.ad=ad
+		self.yuz_olcumu = yuz_olcumu
+		self.sinir_savunmasi = sinir_savunmasi
+		self.coin = coin
+		self.tahta_miktari = tahta_miktari
+		self.metal_miktari = metal_miktari  
+		self.gizlilik = 0	
+		self.savunma_askerleri = Asker(100, 0, 2)
+		self.saldiri_askerleri = Asker(100, 3, 0)
+		self.askeri_okul = yapilar(1,5,1.0,0,0,0)
+		self.isci_okulu = yapilar(1,2,1.0,0,0,0)
+		self.hastane = yapilar(1,0,1.0,0,10,0)
+		self.banka = yapilar(1,0,1.0,150,0,0)
+		self.tahta_ureten_isciler = 10
+		self.metal_ureten_isciler = 10
+		self.hava_saldirisi = 0
+		self.deniz_saldirisi = 0
+		self.y1 = self.yuz_olcumu[0][0] - 20
+		self.y2 = self.yuz_olcumu[1][0] + 20
+		self.x1 = self.yuz_olcumu[0][1] - 20
+		self.x2 = self.yuz_olcumu[1][1] + 20
+		self.baslangic_y1 = self.yuz_olcumu[0][0] - 20
+		self.baslangic_y2 = self.yuz_olcumu[1][0] + 20
+		self.baslangic_x1 = self.yuz_olcumu[0][1] - 20
+		self.baslangic_x2 = self.yuz_olcumu[1][1] + 20
+
+	def gizliligi_goster(self):
+		self.gizlilik = 1
+
+usernames = []
+
+users ={}
+
+mp_empire_id = []
+
+
+CostaRica = Empire(1, [[100, 100],[150, 150],[]], 100, 1500, 2000, 1200, 'CostaRica')
+Egypt = Empire(2, [[100, 150],[150, 200],[]], 100, 1500, 2000, 1200, 'Egypt')
+Somalia = Empire(3, [[100, 200],[150, 250],[]], 100, 1500, 2000, 1200, 'Somalia')
+Brazil = Empire(4, [[100, 250],[150, 300],[]], 100, 1500, 2000, 1200, 'Brazil')
+Nigeria = Empire(5, [[100, 300],[150, 350],[]], 100, 1500, 2000, 1200, 'Nigeria')
+Laos = Empire(6, [[100, 350],[150, 400],[]], 100, 1500, 2000, 1200, 'Laos')
+Turkey = Empire(7, [[100, 400],[150, 450],[]], 100, 1500, 2000, 1200, 'Turkey')
+Benin = Empire(8, [[100, 450],[150, 500],[]], 100, 1500, 2000, 1200, 'Benin')
+NorthKorea = Empire(9, [[100, 500],[150, 550],[]], 100, 1500, 2000, 1200, 'NorthKorea')
+Guinea = Empire(10, [[100, 550],[150, 600],[]], 100, 1500, 2000, 1200, 'Guinea')
+Belarus = Empire(11, [[100, 600],[150, 650],[]], 100, 1500, 2000, 1200, 'Belarus')
+Mexico = Empire(12, [[100, 650],[150, 700],[]], 100, 1500, 2000, 1200, 'Mexico')
+Hungary = Empire(13, [[100, 700],[150, 750],[]], 100, 1500, 2000, 1200, 'Hungary')
+Belize = Empire(14, [[100, 750],[150, 800],[]], 100, 1500, 2000, 1200, 'Belize')
+Argentina = Empire(15, [[100, 800],[150, 850],[]], 100, 1500, 2000, 1200, 'Argentina')
+Samoa = Empire(16, [[100, 850],[150, 900],[]], 100, 150000, 20000, 12000, 'Samoa')
+Panama = Empire(17, [[150, 100],[200, 150],[]], 100, 1500, 2000, 1200, 'Panama')
+GuineaBissau = Empire(18, [[150, 150],[200, 200],[]], 100, 1500, 2000, 1200, 'GuineaBissau')
+Vietnam = Empire(19, [[150, 200],[200, 250],[]], 100, 1500, 2000, 1200, 'Vietnam')
+SaintVincent = Empire(20, [[150, 250],[200, 300],[]], 100, 1500, 2000, 1200, 'SaintVincent')
+Antigua = Empire(21, [[150, 300],[200, 350],[]], 100, 1500, 2000, 1200, 'Antigua')
+Curacao = Empire(22, [[150, 350],[200, 400],[]], 100, 1500, 2000, 1200, 'Curacao')
+Taiwan = Empire(23, [[150, 400],[200, 450],[]], 100, 1500, 2000, 1200, 'Taiwan')
+Uzbekistan = Empire(24, [[150, 450],[200, 500],[]], 100, 1500, 2000, 1200, 'Uzbekistan')
+Denmark = Empire(25, [[150, 500],[200, 550],[]], 100, 1500, 2000, 1200, 'Denmark')
+Luxembourg = Empire(26, [[150, 550],[200, 600],[]], 100, 1500, 2000, 1200, 'Luxembourg')
+Mongolia = Empire(27, [[150, 600],[200, 650],[]], 100, 1500, 2000, 1200, 'Mongolia')
+Germany = Empire(28, [[150, 650],[200, 700],[]], 100, 1500, 2000, 1200, 'Germany')
+Fiji = Empire(29, [[150, 700],[200, 750],[]], 100, 1500, 2000, 1200, 'Fiji')
+Lebanon = Empire(30, [[150, 750],[200, 800],[]], 100, 1500, 2000, 1200, 'Lebanon')
+Principe = Empire(31, [[150, 800],[200, 850],[]], 100, 1500, 2000, 1200, 'Principe')
+Jamaica = Empire(32, [[150, 850],[200, 900],[]], 100, 1500, 2000, 1200, 'Jamaica')
+Austria = Empire(33, [[200, 100],[250, 150],[]], 100, 1500, 2000, 1200, 'Austria')
+Cambodia = Empire(34, [[200, 150],[250, 200],[]], 100, 1500, 2000, 1200, 'Cambodia')
+CongoRepublic = Empire(35, [[200, 200],[250, 250],[]], 100, 1500, 2000, 1200, 'CongoRepublic')
+Bahamas = Empire(36, [[200, 250],[250, 300],[]], 100, 1500, 2000, 1200, 'Bahamas')
+Portugal = Empire(37, [[200, 300],[250, 350],[]], 100, 1500, 2000, 1200, 'Portugal')
+UnitedKingdom = Empire(38, [[200, 350],[250, 400],[]], 100, 1500, 2000, 1200, 'UnitedKingdom')
+HongKong = Empire(39, [[200, 400],[250, 450],[]], 100, 1500, 2000, 1200, 'HongKong')
+SouthSudan = Empire(40, [[200, 450],[250, 500],[]], 100, 1500, 2000, 1200, 'SouthSudan')
+Syria = Empire(41, [[200, 500],[250, 550],[]], 100, 1500, 2000, 1200, 'Syria')
+Armenia = Empire(42, [[200, 550],[250, 600],[]], 100, 1500, 2000, 1200, 'Armenia')
+Kenya = Empire(43, [[200, 600],[250, 650],[]], 100, 1500, 2000, 1200, 'Kenya')
+Barbuda = Empire(44, [[200, 650],[250, 700],[]], 100, 1500, 2000, 1200, 'Barbuda')
+Liechtenstein = Empire(45, [[200, 700],[250, 750],[]], 100, 1500, 2000, 1200, 'Liechtenstein')
+China = Empire(46, [[200, 750],[250, 800],[]], 100, 1500, 2000, 1200, 'China')
+Kyrgyzstan = Empire(47, [[200, 800],[250, 850],[]], 100, 1500, 2000, 1200, 'Kyrgyzstan')
+theGrenadines = Empire(48, [[200, 850],[250, 900],[]], 100, 1500, 2000, 1200, 'theGrenadines')
+Iceland = Empire(49, [[250, 100],[300, 150],[]], 100, 1500, 2000, 1200, 'Iceland')
+Eritrea = Empire(50, [[250, 150],[300, 200],[]], 100, 1500, 2000, 1200, 'Eritrea')
+Greece = Empire(51, [[250, 200],[300, 250],[]], 100, 1500, 2000, 1200, 'Greece')
+Romania = Empire(52, [[250, 250],[300, 300],[]], 100, 1500, 2000, 1200, 'Romania')
+Morocco = Empire(53, [[250, 300],[300, 350],[]], 100, 1500, 2000, 1200, 'Morocco')
+CotedIvoire = Empire(54, [[250, 350],[300, 400],[]], 100, 1500, 2000, 1200, 'CotedIvoire')
+Mauritius = Empire(55, [[250, 400],[300, 450],[]], 100, 1500, 2000, 1200, 'Mauritius')
+Honduras = Empire(56, [[250, 450],[300, 500],[]], 100, 1500, 2000, 1200, 'Honduras')
+Togo = Empire(57, [[250, 500],[300, 550],[]], 100, 1500, 2000, 1200, 'Togo')
+Nauru = Empire(58, [[250, 550],[300, 600],[]], 100, 1500, 2000, 1200, 'Nauru')
+SaudiArabia = Empire(59, [[250, 600],[300, 650],[]], 100, 1500, 2000, 1200, 'SaudiArabia')
+BurkinaFaso = Empire(60, [[250, 650],[300, 700],[]], 100, 1500, 2000, 1200, 'BurkinaFaso')
+Iran = Empire(61, [[250, 700],[300, 750],[]], 100, 1500, 2000, 1200, 'Iran')
+Bangladesh = Empire(62, [[250, 750],[300, 800],[]], 100, 1500, 2000, 1200, 'Bangladesh')
+Vanuatu = Empire(63, [[250, 800],[300, 850],[]], 100, 1500, 2000, 1200, 'Vanuatu')
+Zambia = Empire(64, [[250, 850],[300, 900],[]], 100, 1500, 2000, 1200, 'Zambia')
+Ukraine = Empire(65, [[300, 100],[350, 150],[]], 100, 1500, 2000, 1200, 'Ukraine')
+Oman = Empire(66, [[300, 150],[350, 200],[]], 100, 1500, 2000, 1200, 'Oman')
+SierraLeone = Empire(67, [[300, 200],[350, 250],[]], 100, 1500, 2000, 1200, 'SierraLeone')
+Slovenia = Empire(68, [[300, 250],[350, 300],[]], 100, 1500, 2000, 1200, 'Slovenia')
+KoreaNorth = Empire(69, [[300, 300],[350, 350],[]], 100, 1500, 2000, 1200, 'KoreaNorth')
+Iraq = Empire(70, [[300, 350],[350, 400],[]], 100, 1500, 2000, 1200, 'Iraq')
+Algeria = Empire(71, [[300, 400],[350, 450],[]], 100, 1500, 2000, 1200, 'Algeria')
+Cuba = Empire(72, [[300, 450],[350, 500],[]], 100, 1500, 2000, 1200, 'Cuba')
+Peru = Empire(73, [[300, 500],[350, 550],[]], 100, 1500, 2000, 1200, 'Peru')
+Poland = Empire(74, [[300, 550],[350, 600],[]], 100, 1500, 2000, 1200, 'Poland')
+Tuvalu = Empire(75, [[300, 600],[350, 650],[]], 100, 1500, 2000, 1200, 'Tuvalu')
+India = Empire(76, [[300, 650],[350, 700],[]], 100, 1500, 2000, 1200, 'India')
+Kiribati = Empire(77, [[300, 700],[350, 750],[]], 100, 1500, 2000, 1200, 'Kiribati')
+Chile = Empire(78, [[300, 750],[350, 800],[]], 100, 1500, 2000, 1200, 'Chile')
+Dominica = Empire(79, [[300, 800],[350, 850],[]], 100, 1500, 2000, 1200, 'Dominica')
+Burma = Empire(80, [[300, 850],[350, 900],[]], 100, 1500, 2000, 1200, 'Burma')
+Canada = Empire(81, [[350, 100],[400, 150],[]], 100, 1500, 2000, 1200, 'Canada')
+Bahrain = Empire(82, [[350, 150],[400, 200],[]], 100, 1500, 2000, 1200, 'Bahrain')
+ElSalvador = Empire(83, [[350, 200],[400, 250],[]], 100, 1500, 2000, 1200, 'ElSalvador')
+Nevis = Empire(84, [[350, 250],[400, 300],[]], 100, 1500, 2000, 1200, 'Nevis')
+Russia = Empire(85, [[350, 300],[400, 350],[]], 100, 1500, 2000, 1200, 'Russia')
+Guatemala = Empire(86, [[350, 350],[400, 400],[]], 100, 1500, 2000, 1200, 'Guatemala')
+UnitedArabEmirates = Empire(87, [[350, 400],[400, 450],[]], 100, 1500, 2000, 1200, 'UnitedArabEmirates')
+SaoTome = Empire(88, [[350, 450],[400, 500],[]], 100, 1500, 2000, 1200, 'SaoTome')
+Croatia = Empire(89, [[350, 500],[400, 550],[]], 100, 1500, 2000, 1200, 'Croatia')
+Kuwait = Empire(90, [[350, 550],[400, 600],[]], 100, 1500, 2000, 1200, 'Kuwait')
+Israel = Empire(91, [[350, 600],[400, 650],[]], 100, 1500, 2000, 1200, 'Israel')
+Albania = Empire(92, [[350, 650],[400, 700],[]], 100, 1500, 2000, 1200, 'Albania')
+Madagascar = Empire(93, [[350, 700],[400, 750],[]], 100, 1500, 2000, 1200, 'Madagascar')
+Niger = Empire(94, [[350, 750],[400, 800],[]], 100, 1500, 2000, 1200, 'Niger')
+Comoros = Empire(95, [[350, 800],[400, 850],[]], 100, 1500, 2000, 1200, 'Comoros')
+Bulgaria = Empire(96, [[350, 850],[400, 900],[]], 100, 1500, 2000, 1200, 'Bulgaria')
+Suriname = Empire(97, [[400, 100],[450, 150],[]], 100, 1500, 2000, 1200, 'Suriname')
+Andorra = Empire(98, [[400, 150],[450, 200],[]], 100, 1500, 2000, 1200, 'Andorra')
+CentralAfricanRepublic = Empire(99, [[400, 200],[450, 250],[]], 100, 1500, 2000, 1200, 'CentralAfricanRepublic')
+Tajikistan = Empire(100, [[400, 250],[450, 300],[]], 100, 1500, 2000, 1200, 'Tajikistan')
+Ireland = Empire(101, [[400, 300],[450, 350],[]], 100, 1500, 2000, 1200, 'Ireland')
+Mauritania = Empire(102, [[400, 350],[450, 400],[]], 100, 1500, 2000, 1200, 'Mauritania')
+KoreaSouth = Empire(103, [[400, 400],[450, 450],[]], 100, 1500, 2000, 1200, 'KoreaSouth')
+Malawi = Empire(104, [[400, 450],[450, 500],[]], 100, 1500, 2000, 1200, 'Malawi')
+Montenegro = Empire(105, [[400, 500],[450, 550],[]], 100, 1500, 2000, 1200, 'Montenegro')
+SriLanka = Empire(106, [[400, 550],[450, 600],[]], 100, 1500, 2000, 1200, 'SriLanka')
+Turkmenistan = Empire(107, [[400, 600],[450, 650],[]], 100, 1500, 2000, 1200, 'Turkmenistan')
+Afghanistan = Empire(108, [[400, 650],[450, 700],[]], 100, 1500, 2000, 1200, 'Afghanistan')
+Senegal = Empire(109, [[400, 700],[450, 750],[]], 100, 1500, 2000, 1200, 'Senegal')
+HolySee = Empire(110, [[400, 750],[450, 800],[]], 100, 1500, 2000, 1200, 'HolySee')
+Aruba = Empire(111, [[400, 800],[450, 850],[]], 100, 1500, 2000, 1200, 'Aruba')
+EastTimor = Empire(112, [[400, 850],[450, 900],[]], 100, 1500, 2000, 1200, 'EastTimor')
+Belgium = Empire(113, [[450, 100],[500, 150],[]], 100, 1500, 2000, 1200, 'Belgium')
+SaintKitts = Empire(114, [[450, 150],[500, 200],[]], 100, 1500, 2000, 1200, 'SaintKitts')
+Chad = Empire(115, [[450, 200],[500, 250],[]], 100, 1500, 2000, 1200, 'Chad')
+Gabon = Empire(116, [[450, 250],[500, 300],[]], 100, 1500, 2000, 1200, 'Gabon')
+Singapore = Empire(117, [[450, 300],[500, 350],[]], 100, 1500, 2000, 1200, 'Singapore')
+Bhutan = Empire(118, [[450, 350],[500, 400],[]], 100, 1500, 2000, 1200, 'Bhutan')
+Rwanda = Empire(119, [[450, 400],[500, 450],[]], 100, 1500, 2000, 1200, 'Rwanda')
+EquatorialGuinea = Empire(120, [[450, 450],[500, 500],[]], 100, 1500, 2000, 1200, 'EquatorialGuinea')
+Philippines = Empire(121, [[450, 500],[500, 550],[]], 100, 1500, 2000, 1200, 'Philippines')
+TimorLeste = Empire(122, [[450, 550],[500, 600],[]], 100, 1500, 2000, 1200, 'TimorLeste')
+PalestinianTerritories = Empire(123, [[450, 600],[500, 650],[]], 100, 1500, 2000, 1200, 'PalestinianTerritories')
+Nepal = Empire(124, [[450, 650],[500, 700],[]], 100, 1500, 2000, 1200, 'Nepal')
+Mozambique = Empire(125, [[450, 700],[500, 750],[]], 100, 1500, 2000, 1200, 'Mozambique')
+Trinidad = Empire(126, [[450, 750],[500, 800],[]], 100, 1500, 2000, 1200, 'Trinidad')
+CzechRepublic = Empire(127, [[450, 800],[500, 850],[]], 100, 1500, 2000, 1200, 'CzechRepublic')
+Kosovo = Empire(128, [[450, 850],[500, 900],[]], 100, 1500, 2000, 1200, 'Kosovo')
+Uganda = Empire(129, [[500, 100],[550, 150],[]], 100, 1500, 2000, 1200, 'Uganda')
+Sweden = Empire(130, [[500, 150],[550, 200],[]], 100, 1500, 2000, 1200, 'Sweden')
+Namibia = Empire(131, [[500, 200],[550, 250],[]], 100, 1500, 2000, 1200, 'Namibia')
+PapuaNewGuinea = Empire(132, [[500, 250],[550, 300],[]], 100, 1500, 2000, 1200, 'PapuaNewGuinea')
+Colombia = Empire(133, [[500, 300],[550, 350],[]], 100, 1500, 2000, 1200, 'Colombia')
+Netherlands = Empire(134, [[500, 350],[550, 400],[]], 100, 1500, 2000, 1200, 'Netherlands')
+SouthKorea = Empire(135, [[500, 400],[550, 450],[]], 100, 1500, 2000, 1200, 'SouthKorea')
+Brunei = Empire(136, [[500, 450],[550, 500],[]], 100, 1500, 2000, 1200, 'Brunei')
+Monaco = Empire(137, [[500, 500],[550, 550],[]], 100, 1500, 2000, 1200, 'Monaco')
+Herzegovina = Empire(138, [[500, 550],[550, 600],[]], 100, 1500, 2000, 1200, 'Herzegovina')
+Maldives = Empire(139, [[500, 600],[550, 650],[]], 100, 1500, 2000, 1200, 'Maldives')
+Nicaragua = Empire(140, [[500, 650],[550, 700],[]], 100, 1500, 2000, 1200, 'Nicaragua')
+NetherlandsAntilles = Empire(141, [[500, 700],[550, 750],[]], 100, 1500, 2000, 1200, 'NetherlandsAntilles')
+Ghana = Empire(142, [[500, 750],[550, 800],[]], 100, 1500, 2000, 1200, 'Ghana')
+NewZealand = Empire(143, [[500, 800],[550, 850],[]], 100, 1500, 2000, 1200, 'NewZealand')
+Qatar = Empire(144, [[500, 850],[550, 900],[]], 100, 1500, 2000, 1200, 'Qatar')
+SaintLucia = Empire(145, [[550, 100],[600, 150],[]], 100, 1500, 2000, 1200, 'SaintLucia')
+Seychelles = Empire(146, [[550, 150],[600, 200],[]], 100, 1500, 2000, 1200, 'Seychelles')
+Estonia = Empire(147, [[550, 200],[600, 250],[]], 100, 1500, 2000, 1200, 'Estonia')
+Bolivia = Empire(148, [[550, 250],[600, 300],[]], 100, 1500, 2000, 1200, 'Bolivia')
+Djibouti = Empire(149, [[550, 300],[600, 350],[]], 100, 1500, 2000, 1200, 'Djibouti')
+Palau = Empire(150, [[550, 350],[600, 400],[]], 100, 1500, 2000, 1200, 'Palau')
+Macau = Empire(151, [[550, 400],[600, 450],[]], 100, 1500, 2000, 1200, 'Macau')
+France = Empire(152, [[550, 450],[600, 500],[]], 100, 1500, 2000, 1200, 'France')
+Botswana = Empire(153, [[550, 500],[600, 550],[]], 100, 1500, 2000, 1200, 'Botswana')
+Georgia = Empire(154, [[550, 550],[600, 600],[]], 100, 1500, 2000, 1200, 'Georgia')
+Norway = Empire(155, [[550, 600],[600, 650],[]], 100, 1500, 2000, 1200, 'Norway')
+Angola = Empire(156, [[550, 650],[600, 700],[]], 100, 1500, 2000, 1200, 'Angola')
+Pakistan = Empire(157, [[550, 700],[600, 750],[]], 100, 1500, 2000, 1200, 'Pakistan')
+Zimbabwe = Empire(158, [[550, 750],[600, 800],[]], 100, 1500, 2000, 1200, 'Zimbabwe')
+DominicanRepublic = Empire(159, [[550, 800],[600, 850],[]], 100, 1500, 2000, 1200, 'DominicanRepublic')
+Paraguay = Empire(160, [[550, 850],[600, 900],[]], 100, 1500, 2000, 1200, 'Paraguay')
+Mali = Empire(161, [[600, 100],[650, 150],[]], 100, 1500, 2000, 1200, 'Mali')
+Tanzania = Empire(162, [[600, 150],[650, 200],[]], 100, 1500, 2000, 1200, 'Tanzania')
+Tonga = Empire(163, [[600, 200],[650, 250],[]], 100, 1500, 2000, 1200, 'Tonga')
+Barbados = Empire(164, [[600, 250],[650, 300],[]], 100, 1500, 2000, 1200, 'Barbados')
+Tobago = Empire(165, [[600, 300],[650, 350],[]], 100, 1500, 2000, 1200, 'Tobago')
+SintMaarten = Empire(166, [[600, 350],[650, 400],[]], 100, 1500, 2000, 1200, 'SintMaarten')
+SolomonIslands = Empire(167, [[600, 400],[650, 450],[]], 100, 1500, 2000, 1200, 'SolomonIslands')
+Haiti = Empire(168, [[600, 450],[650, 500],[]], 100, 1500, 2000, 1200, 'Haiti')
+Serbia = Empire(169, [[600, 500],[650, 550],[]], 100, 1500, 2000, 1200, 'Serbia')
+Tunisia = Empire(170, [[600, 550],[650, 600],[]], 100, 1500, 2000, 1200, 'Tunisia')
+MarshallIslands = Empire(171, [[600, 600],[650, 650],[]], 100, 1500, 2000, 1200, 'MarshallIslands')
+Switzerland = Empire(172, [[600, 650],[650, 700],[]], 100, 1500, 2000, 1200, 'Switzerland')
+Sudan = Empire(173, [[600, 700],[650, 750],[]], 100, 1500, 2000, 1200, 'Sudan')
+Micronesia = Empire(174, [[600, 750],[650, 800],[]], 100, 1500, 2000, 1200, 'Micronesia')
+Grenada = Empire(175, [[600, 800],[650, 850],[]], 100, 1500, 2000, 1200, 'Grenada')
+Slovakia = Empire(176, [[600, 850],[650, 900],[]], 100, 1500, 2000, 1200, 'Slovakia')
+Yemen = Empire(177, [[650, 100],[700, 150],[]], 100, 1500, 2000, 1200, 'Yemen')
+Guyana = Empire(178, [[650, 150],[700, 200],[]], 100, 1500, 2000, 1200, 'Guyana')
+Malta = Empire(179, [[650, 200],[700, 250],[]], 100, 1500, 2000, 1200, 'Malta')
+Moldova = Empire(180, [[650, 250],[700, 300],[]], 100, 1500, 2000, 1200, 'Moldova')
+Ecuador = Empire(181, [[650, 300],[700, 350],[]], 100, 1500, 2000, 1200, 'Ecuador')
+Malaysia = Empire(182, [[650, 350],[700, 400],[]], 100, 1500, 2000, 1200, 'Malaysia')
+Thailand = Empire(183, [[650, 400],[700, 450],[]], 100, 1500, 2000, 1200, 'Thailand')
+Spain = Empire(184, [[650, 450],[700, 500],[]], 100, 1500, 2000, 1200, 'Spain')
+Azerbaijan = Empire(185, [[650, 500],[700, 550],[]], 100, 1500, 2000, 1200, 'Azerbaijan')
+Liberia = Empire(186, [[650, 550],[700, 600],[]], 100, 1500, 2000, 1200, 'Liberia')
+Italy = Empire(187, [[650, 600],[700, 650],[]], 100, 1500, 2000, 1200, 'Italy')
+CongoDemocratic = Empire(188, [[650, 650],[700, 700],[]], 100, 1500, 2000, 1200, 'CongoDemocratic')
+Australia = Empire(189, [[650, 700],[700, 750],[]], 100, 1500, 2000, 1200, 'Australia')
+Macedonia = Empire(190, [[650, 750],[700, 800],[]], 100, 1500, 2000, 1200, 'Macedonia')
+Finland = Empire(191, [[650, 800],[700, 850],[]], 100, 1500, 2000, 1200, 'Finland')
+Kazakhstan = Empire(192, [[650, 850],[700, 900],[]], 100, 1500, 2000, 1200, 'Kazakhstan')
+SanMarino = Empire(193, [[700, 100],[750, 150],[]], 100, 1500, 2000, 1200, 'SanMarino')
+Cameroon = Empire(194, [[700, 150],[750, 200],[]], 100, 1500, 2000, 1200, 'Cameroon')
+Jordan = Empire(195, [[700, 200],[750, 250],[]], 100, 1500, 2000, 1200, 'Jordan')
+Indonesia = Empire(196, [[700, 250],[750, 300],[]], 100, 1500, 2000, 1200, 'Indonesia')
+Lesotho = Empire(197, [[700, 300],[750, 350],[]], 100, 1500, 2000, 1200, 'Lesotho')
+Libya = Empire(198, [[700, 350],[750, 400],[]], 100, 1500, 2000, 1200, 'Libya')
+SouthAfrica = Empire(199, [[700, 400],[750, 450],[]], 100, 1500, 2000, 1200, 'SouthAfrica')
+Burundi = Empire(200, [[700, 450],[750, 500],[]], 100, 1500, 2000, 1200, 'Burundi')
+Bosnia = Empire(201, [[700, 500],[750, 550],[]], 100, 1500, 2000, 1200, 'Bosnia')
+TimorLeste = Empire(202, [[700, 550],[750, 600],[]], 100, 1500, 2000, 1200, 'TimorLeste')
+Venezuela = Empire(203, [[700, 600],[750, 650],[]], 100, 1500, 2000, 1200, 'Venezuela')
+Uruguay = Empire(204, [[700, 650],[750, 700],[]], 100, 1500, 2000, 1200, 'Uruguay')
+Swaziland = Empire(205, [[700, 700],[750, 750],[]], 100, 1500, 2000, 1200, 'Swaziland')
+Japan = Empire(206, [[700, 750],[750, 800],[]], 100, 1500, 2000, 1200, 'Japan')
+CapeVerde = Empire(207, [[700, 800],[750, 850],[]], 100, 1500, 2000, 1200, 'CapeVerde')
+Gambia = Empire(208, [[700, 850],[750, 900],[]], 100, 1500, 2000, 1200, 'Gambia')
+Cyprus = Empire(209, [[750, 100],[800, 150],[]], 100, 1500, 2000, 1200, 'Cyprus')
+Lithuania = Empire(210, [[750, 150],[800, 200],[]], 100, 1500, 2000, 1200, 'Lithuania')
+Latvia = Empire(211, [[750, 200],[800, 250],[]], 100, 1500, 2000, 1200, 'Latvia')
+kifoglsh = Empire(212, [[750, 250],[800, 300],[]], 100, 1500, 2000, 1200, 'kifoglsh')
+dwqdbsto = Empire(213, [[750, 300],[800, 350],[]], 100, 1500, 2000, 1200, 'dwqdbsto')
+xfrwvgwr = Empire(214, [[750, 350],[800, 400],[]], 100, 1500, 2000, 1200, 'xfrwvgwr')
+hfxxbdvh = Empire(215, [[750, 400],[800, 450],[]], 100, 1500, 2000, 1200, 'hfxxbdvh')
+kgjjouah = Empire(216, [[750, 450],[800, 500],[]], 100, 1500, 2000, 1200, 'kgjjouah')
+xmmdzjjh = Empire(217, [[750, 500],[800, 550],[]], 100, 1500, 2000, 1200, 'xmmdzjjh')
+fzjfxlgp = Empire(218, [[750, 550],[800, 600],[]], 100, 1500, 2000, 1200, 'fzjfxlgp')
+csluouof = Empire(219, [[750, 600],[800, 650],[]], 100, 1500, 2000, 1200, 'csluouof')
+uehwbnbz = Empire(220, [[750, 650],[800, 700],[]], 100, 1500, 2000, 1200, 'uehwbnbz')
+hayfztvj = Empire(221, [[750, 700],[800, 750],[]], 100, 1500, 2000, 1200, 'hayfztvj')
+altahflv = Empire(222, [[750, 750],[800, 800],[]], 100, 1500, 2000, 1200, 'altahflv')
+yvuevpqn = Empire(223, [[750, 800],[800, 850],[]], 100, 1500, 2000, 1200, 'yvuevpqn')
+htwxzmoh = Empire(224, [[750, 850],[800, 900],[]], 100, 1500, 2000, 1200, 'htwxzmoh')
+ffvcisnu = Empire(225, [[800, 100],[850, 150],[]], 100, 1500, 2000, 1200, 'ffvcisnu')
+ppqhmygm = Empire(226, [[800, 150],[850, 200],[]], 100, 1500, 2000, 1200, 'ppqhmygm')
+atsjikxd = Empire(227, [[800, 200],[850, 250],[]], 100, 1500, 2000, 1200, 'atsjikxd')
+odfhnnvs = Empire(228, [[800, 250],[850, 300],[]], 100, 1500, 2000, 1200, 'odfhnnvs')
+fbgmbwfb = Empire(229, [[800, 300],[850, 350],[]], 100, 1500, 2000, 1200, 'fbgmbwfb')
+elzpdlst = Empire(230, [[800, 350],[850, 400],[]], 100, 1500, 2000, 1200, 'elzpdlst')
+vwuuuspi = Empire(231, [[800, 400],[850, 450],[]], 100, 1500, 2000, 1200, 'vwuuuspi')
+byyoniiq = Empire(232, [[800, 450],[850, 500],[]], 100, 1500, 2000, 1200, 'byyoniiq')
+gmigmwtq = Empire(233, [[800, 500],[850, 550],[]], 100, 1500, 2000, 1200, 'gmigmwtq')
+ahgfcdwz = Empire(234, [[800, 550],[850, 600],[]], 100, 1500, 2000, 1200, 'ahgfcdwz')
+hzkzgxtz = Empire(235, [[800, 600],[850, 650],[]], 100, 1500, 2000, 1200, 'hzkzgxtz')
+jwapgnls = Empire(236, [[800, 650],[850, 700],[]], 100, 1500, 2000, 1200, 'jwapgnls')
+hntpznec = Empire(237, [[800, 700],[850, 750],[]], 100, 1500, 2000, 1200, 'hntpznec')
+ugrdkvoz = Empire(238, [[800, 750],[850, 800],[]], 100, 1500, 2000, 1200, 'ugrdkvoz')
+hkgnwzme = Empire(239, [[800, 800],[850, 850],[]], 100, 1500, 2000, 1200, 'hkgnwzme')
+bdhhqild = Empire(240, [[800, 850],[850, 900],[]], 100, 1500, 2000, 1200, 'bdhhqild')
+ohmaxbrt = Empire(241, [[850, 100],[900, 150],[]], 100, 1500, 2000, 1200, 'ohmaxbrt')
+yzlrnxhb = Empire(242, [[850, 150],[900, 200],[]], 100, 1500, 2000, 1200, 'yzlrnxhb')
+ujkydexp = Empire(243, [[850, 200],[900, 250],[]], 100, 1500, 2000, 1200, 'ujkydexp')
+npjqfjww = Empire(244, [[850, 250],[900, 300],[]], 100, 1500, 2000, 1200, 'npjqfjww')
+hbqauxee = Empire(245, [[850, 300],[900, 350],[]], 100, 1500, 2000, 1200, 'hbqauxee')
+zaauslmq = Empire(246, [[850, 350],[900, 400],[]], 100, 1500, 2000, 1200, 'zaauslmq')
+ovjvzxlu = Empire(247, [[850, 400],[900, 450],[]], 100, 1500, 2000, 1200, 'ovjvzxlu')
+wffcxkwd = Empire(248, [[850, 450],[900, 500],[]], 100, 1500, 2000, 1200, 'wffcxkwd')
+xwcawtkd = Empire(249, [[850, 500],[900, 550],[]], 100, 1500, 2000, 1200, 'xwcawtkd')
+ezgxevtd = Empire(250, [[850, 550],[900, 600],[]], 100, 1500, 2000, 1200, 'ezgxevtd')
+hnyzfxoi = Empire(251, [[850, 600],[900, 650],[]], 100, 1500, 2000, 1200, 'hnyzfxoi')
+ksixwjta = Empire(252, [[850, 650],[900, 700],[]], 100, 1500, 2000, 1200, 'ksixwjta')
+tiajjogg = Empire(253, [[850, 700],[900, 750],[]], 100, 1500, 2000, 1200, 'tiajjogg')
+glcseszh = Empire(254, [[850, 750],[900, 800],[]], 100, 1500, 2000, 1200, 'glcseszh')
+mzvpiret = Empire(255, [[850, 800],[900, 850],[]], 100, 1500, 2000, 1200, 'mzvpiret')
+szaayldd = Empire(256, [[850, 850],[900, 900],[]], 100, 1500, 2000, 1200, 'szaayldd')
+
+
+dicts = {'216':  kgjjouah , '217':  xmmdzjjh , '214':  xfrwvgwr , '215':  hfxxbdvh , '212':  kifoglsh , '213':  dwqdbsto , '210':  Lithuania , '211':  Latvia , '165':  Tobago , '218':  fzjfxlgp , '219':  csluouof , '133':  Colombia , '132':  PapuaNewGuinea , '131':  Namibia , '130':  Sweden , '137':  Monaco , '136':  Brunei , '135':  SouthKorea , '134':  Netherlands , '139':  Maldives , '138':  Herzegovina , '166':  SintMaarten , '24':  Uzbekistan , '25':  Denmark , '26':  Luxembourg , '27':  Mongolia , '20':  SaintVincent , '21':  Antigua , '22':  Curacao , '23':  Taiwan , '160':  Paraguay , '28':  Germany , '29':  Fiji , '161':  Mali , '4':  Brazil , '8':  Benin , '163':  Tonga , '119':  Rwanda , '120':  EquatorialGuinea , '121':  Philippines , '122':  TimorLeste , '123':  PalestinianTerritories , '124':  Nepal , '125':  Mozambique , '126':  Trinidad , '127':  CzechRepublic , '128':  Kosovo , '129':  Uganda , '167':  SolomonIslands , '118':  Bhutan , '59':  SaudiArabia , '58':  Nauru , '55':  Mauritius , '54':  CotedIvoire , '57':  Togo , '56':  Honduras , '51':  Greece , '50':  Eritrea , '53':  Morocco , '52':  Romania , '164':  Barbados , '201':  Bosnia , '199':  SouthAfrica , '179':  Malta , '200':  Burundi , '195':  Jordan , '194':  Cameroon , '197':  Lesotho , '178':  Guyana , '191':  Finland , '190':  Macedonia , '193':  SanMarino , '192':  Kazakhstan , '115':  Chad , '114':  SaintKitts , '88':  SaoTome , '89':  Croatia , '111':  Aruba , '110':  HolySee , '113':  Belgium , '112':  EastTimor , '82':  Bahrain , '83':  ElSalvador , '80':  Burma , '81':  Canada , '86':  Guatemala , '87':  UnitedArabEmirates , '84':  Nevis , '85':  Russia , '251':  hnyzfxoi , '198':  Libya , '256':  szaayldd , '206':  Japan , '226':  ppqhmygm , '3':  Somalia , '177':  Yemen , '254':  glcseszh , '7':  Turkey , '247':  ovjvzxlu , '255':  mzvpiret , '225':  ffvcisnu , '245':  hbqauxee , '244':  npjqfjww , '108':  Afghanistan , '109':  Senegal , '241':  ohmaxbrt , '240':  bdhhqild , '243':  ujkydexp , '242':  yzlrnxhb , '102':  Mauritania , '103':  KoreaSouth , '100':  Tajikistan , '101':  Ireland , '106':  SriLanka , '107':  Turkmenistan , '104':  Malawi , '105':  Montenegro , '39':  HongKong , '38':  UnitedKingdom , '33':  Austria , '32':  Jamaica , '31':  Principe , '30':  Lebanon , '37':  Portugal , '36':  Bahamas , '35':  CongoRepublic , '34':  Cambodia , '246':  zaauslmq , '252':  ksixwjta , '205':  Swaziland , '223':  yvuevpqn , '176':  Slovakia , '60':  BurkinaFaso , '61':  Iran , '62':  Bangladesh , '63':  Vanuatu , '64':  Zambia , '65':  Ukraine , '66':  Oman , '67':  SierraLeone , '68':  Slovenia , '69':  KoreaNorth , '175':  Grenada , '174':  Micronesia , '173':  Sudan , '172':  Switzerland , '171':  MarshallIslands , '170':  Tunisia , '203':  Venezuela , '222':  altahflv , '181':  Ecuador , '253':  tiajjogg , '248':  wffcxkwd , '182':  Malaysia , '183':  Thailand , '180':  Moldova , '2':  Egypt , '162':  Tanzania , '187':  Italy , '184':  Spain , '6':  Laos , '220':  uehwbnbz , '186':  Liberia , '188':  CongoDemocratic , '189':  Australia , '202':  TimorLeste , '196':  Indonesia , '221':  hayfztvj , '185':  Azerbaijan , '99':  CentralAfricanRepublic , '98':  Andorra , '168':  Haiti , '169':  Serbia , '229':  fbgmbwfb , '228':  odfhnnvs , '91':  Israel , '90':  Kuwait , '93':  Madagascar , '92':  Albania , '95':  Comoros , '94':  Niger , '97':  Suriname , '96':  Bulgaria , '11':  Belarus , '10':  Guinea , '13':  Hungary , '12':  Mexico , '15':  Argentina , '14':  Belize , '17':  Panama , '16':  Samoa , '19':  Vietnam , '18':  GuineaBissau , '117':  Singapore , '250':  ezgxevtd , '116':  Gabon , '204':  Uruguay , '151':  Macau , '150':  Palau , '153':  Botswana , '152':  France , '155':  Norway , '154':  Georgia , '157':  Pakistan , '156':  Angola , '159':  DominicanRepublic , '158':  Zimbabwe , '234':  ahgfcdwz , '238':  ugrdkvoz , '239':  hkgnwzme , '207':  CapeVerde , '235':  hzkzgxtz , '236':  jwapgnls , '237':  hntpznec , '230':  elzpdlst , '231':  vwuuuspi , '232':  byyoniiq , '233':  gmigmwtq , '224':  htwxzmoh , '48':  theGrenadines , '49':  Iceland , '46':  China , '47':  Kyrgyzstan , '44':  Barbuda , '45':  Liechtenstein , '42':  Armenia , '43':  Kenya , '40':  SouthSudan , '41':  Syria , '1':  CostaRica , '5':  Nigeria , '9':  NorthKorea , '146':  Seychelles , '147':  Estonia , '144':  Qatar , '145':  SaintLucia , '142':  Ghana , '143':  NewZealand , '140':  Nicaragua , '141':  NetherlandsAntilles , '209':  Cyprus , '208':  Gambia , '148':  Bolivia , '149':  Djibouti , '77':  Kiribati , '76':  India , '75':  Tuvalu , '74':  Poland , '73':  Peru , '72':  Cuba , '71':  Algeria , '70':  Iraq , '79':  Dominica , '78':  Chile , '249':  xwcawtkd , '227':  atsjikxd}
+
+empireIds = {}
+
+ei = [0]

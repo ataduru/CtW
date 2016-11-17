@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<body onload="f()">
+
+	<style>
+	#par {
+			border:1px solid red;
+			margin-top: 0px;
+			margin-bottom: 20px;
+			margin-right: 400px;
+			margin-left: 400px;
+	}
+
+
+	</style>
+	
+	<div align="center">
+	<form name="myForm" method="post" onsubmit="return false">
+		<div>{% if message %}
+		   <strong>{{ message }}</strong>
+		   {% endif %}
+		</div>
+		<div id = "par" style="font-size:70%;" align="center" >
+		<font face="courier">{{harita}}</font>
+		</div>
+		<div>
+		<button id="up" class="up" style="font-size:120%;" name="up" onclick="moveUp(myForm)"/>Up</button>
+		<button id="down" class="down" style="font-size:120%;" name="down" />Down</button>
+		<button id="right" class="right" style="font-size:120%;" name="right"/>Right</button>
+		<button id="left" class="left" style="font-size:120%;" name="left" />Left</button>
+		</div>
+		<div style="font-size:120%;"> Command:
+		<input style="font-size:120%;" type="text" name="command"/>
+		{% csrf_token %}
+		<br/>
+		<button id="submit" style="font-size:120%;" name="komut" value="Send" onclick="checkfunction(myForm)"/>Send</button>
+		<b/>
+		<div>{% if ad %}
+		   <div id = "ad">Name: {{ ad }}</div>
+		   <div id = "id">{{id}}</div>
+		   {% endif %}
+		</div>
+		<div>{% if coin %}
+		   <div id = "coin">Coin: {{ coin }}</div>
+		   {% endif %}
+		</div>			
+		<div>{% if ed %}
+		   <div id = "ed">Empire Defense: {{ ed }}</div>
+		   {% endif %}
+		</div>
+		<div>{% if wood %}
+		   <div id = "wood">Wood: {{ wood }}</div>
+		   {% endif %}
+		</div>
+		<div>{% if iron %}
+		   <div id = "iron">Iron: {{ iron }}</div>
+		   {% endif %}
+		</div>
+		<div>{% if as %}
+		   <div id = "as">Attack Soldier: {{ as }}</div>
+		   {% endif %}
+		</div>
+		<div >{% if ds %}
+		   <div id = "ds">Defense Soldier: {{ ds }}</div>
+		   {% endif %}
+		</div>
+	</form>
+	<form method="post" action="/logout">
+		<div style="font-size:120%;"> Logout:
+		<br/>
+		<br/>
+		<input style="font-size:120%;" type="submit" name="logout" value="Logout"/>
+		{% csrf_token %}
+		<br/>
+	</form>
+	</div>
+
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+
+	function f() {
+		var str =  navigator.userAgent;
+		if(str.indexOf("Firefox") > -1) {
+		    document.getElementById("par").style.marginRight = "380px"
+			document.getElementById("par").style.marginLeft = "380px"
+		}
+		else {
+		    document.getElementById("par").style.marginRight = "400px"
+			document.getElementById("par").style.marginLeft = "400px"
+		}
+	}
+
+	var renkler = {'1':'Aqua', '2':'BlueViolet', '3':'Brown', '4':'Chartreuse', '5':'Crimson', '6':'DarkBlue', '7':'DarkGoldenRod', '8':'DarkGreen', '9':'DarkMagenta', '10':'DarkOrange', '11':'DarkTurquoise', '12':'DimGray', '13':'DeepPink', '14':'IndianRed', '15':'Gainsboro', '16':'Gold', '17':'Green', '18':'Indigo', '19':'Khaki', '20':'Maroon'};
+	var used = [];
+
+	function loadmap() {
+
+		$(document).ready(function() {
+			$.ajax({
+				type : "GET",
+				url: '/harita', 
+				success: function (data) {
+					if(document.getElementById("id").innerHTML == data.id) {
+						/*var arr = data.harita.split(" ");
+
+						document.getElementById("par").innerHTML = "";
+						for(i=1; i<arr.length; i++) {
+							var karakter;
+							if(used.indexOf(arr[i]) >= 0) {
+								karakter = arr[i].fontcolor(renkler[used.indexOf(arr[i]).toString()]);
+							}						
+							else {
+								used.push(arr[i]);
+								karakter = arr[i].fontcolor(renkler[used.indexOf(arr[i]).toString()]);
+							}
+				
+							document.getElementById("par").innerHTML += karakter + " ";
+						}	*/
+						document.getElementById("par").innerHTML = data.harita;
+						document.getElementById("par").style.fontFamily = "courier";	
+						document.getElementById("ad").innerHTML = "Name: " + data.ad;
+						document.getElementById("id").innerHTML = data.id;
+						document.getElementById("coin").innerHTML = "Coin: " + data.coin;
+						document.getElementById("ed").innerHTML = "Empire Defense: " + data.ed;
+						document.getElementById("wood").innerHTML = "Wood: " + data.wood;
+						document.getElementById("iron").innerHTML = "Iron: " + data.iron;
+						document.getElementById("as").innerHTML = "Attack Soldier: " + data.as;
+						document.getElementById("ds").innerHTML = "Defense Soldier: " + data.ds;
+					}
+				},
+				complete : setTimeout(loadmap, 2000)				
+			});
+		});
+	}
+
+	function checkfunction(obj){
+		$.post("/command",$(obj).serialize(),function(data){
+		 	
+		 });
+		 return false;
+	}
+
+	function moveUp(obj){
+		$.post("/command", 
+			{'command' : 'Mu'},
+			$(obj).serialize(),
+
+			function(data){
+		 	
+		 });
+		 return false;
+	}
+
+
+	window.loadmap();
+
+	</script>
+
+</body>
+</html>
+

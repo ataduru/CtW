@@ -1,0 +1,36 @@
+<html>
+	<body style="background:url({{ MEDIA_URL }}media/map.jpg); height:970; width:2000;">
+		<div align="center" >
+		<img src="{{MEDIA_URL}}media/name2.jpg" style="height:150; width:900; margin-top:130px">
+		<form method="post" action="/loginp" style="margin-top:0px">
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<p style="font-size:135%; color:white; font-weight:bold"> Username:
+			<input style="font-size:125%;" type="text" name="username"/>
+			<br/>
+			<p style="font-size:135%;color:white; font-weight:bold"> Password:
+			<input style="font-size:135%;" type="password" name="password"/>
+			<br/>
+			{% csrf_token %}
+			<br/>
+			<input style="font-size:135%;" type="submit" name="login" value="Login"/>
+			<p style="font-size:135%; color:white; font-weight:bold"> Message:
+			<p>{% if message %}
+			   <p style="font-size:135%; color:white; font-weight:bold">{{ message }}</p>
+			   {% endif %}
+			</p>
+		</form>
+		<form method="post" action="/signup">
+			<p style="font-size:135%; color:white; font-weight:bold"> Sign Up:
+			<br/>
+			<br/>
+			<input style="font-size:135%;" type="submit" name="signup" value="Sign up"/>
+			{% csrf_token %}
+			<br/>
+		</form>
+		</div>
+	</body>
+</html>
+

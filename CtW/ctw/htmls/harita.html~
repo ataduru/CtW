@@ -1,0 +1,9 @@
+<html>
+	<body>
+		<div id = "harita" align="center">
+			<br/>
+			{{harita}}
+		</div>
+	</body>
+</html>
+

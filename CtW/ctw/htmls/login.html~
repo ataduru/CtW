@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Display browser platform.</p>
+
+<button onclick="f()">Try it</button>
+
+<p id="demo"></p>
+
+<div align="center">
+		<form method="post" action="/loginp">
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<p style="font-size:120%;"> Username:
+			<input style="font-size:110%;" type="text" name="username"/>
+			<br/>
+			<p style="font-size:120%;"> Password:
+			<input style="font-size:120%;" type="password" name="password"/>
+			<br/>
+			{% csrf_token %}
+			<br/>
+			<input style="font-size:120%;" type="submit" name="login" value="Login"/>
+			<p style="font-size:120%;"> Message:
+			<p>{% if message %}
+			   <strong>{{ message }}</strong>
+			   {% endif %}
+			</p>
+		</form>
+		<form method="post" action="/signup">
+			<p style="font-size:120%;"> Sign Up:
+			<br/>
+			<br/>
+			<input style="font-size:120%;" type="submit" name="signup" value="Sign up"/>
+			{% csrf_token %}
+			<br/>
+		</form>
+		</div>
+
+<script>
+function myFunction() { 
+    document.getElementById("demo").innerHTML = 
+    navigator.platform;
+}
+
+function f() {
+    var str =  navigator.userAgent;
+    if(str.indexOf("Chromium") > -1) {
+        document.getElementById("demo").innerHTML = "OK"
+    }
+    else {
+        document.getElementById("demo").innerHTML = "FUCK"
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+

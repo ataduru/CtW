@@ -1,0 +1,14 @@
+<html>
+	<body style="background:url({{ MEDIA_URL }}media/connect.jpg);">
+		<div align="center">
+		<form method="post" action="/client">
+			<br/>
+			<br/>
+			<p style="font-size:220%;"> Connected!
+			<br/>
+			<input style="font-size:120%;" type="submit" name="login" value="Continue"/>
+			{% csrf_token %}
+		</form>
+		</div>
+	</body>
+</html>
